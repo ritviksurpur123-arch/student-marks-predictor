@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Student Marks Predictor</h1>
+
+        <p>Enter the number of hours studied to predict the expected score.</p>
+
+        <form method="POST">
+            <label for="hours">Study Hours</label>
+            <input
+                type="number"
+                id="hours"
+                name="hours"
+                step="0.1"
+                min="0"
+                required
+            >
+
+            <button type="submit">Predict Score</button>
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result">
+                <h2>Predicted Score</h2>
+                <p>{{ prediction }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
